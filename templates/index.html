@@ -12,28 +12,18 @@
   </head>
   <body>
       <div class="container text-center mt-5">
-        <h1>Nucleotide Sequence Generator</h1>
+        <h1>order is : {{len}}</h1>
         <!-- <input type="number" id="count"> -->
         <form method="POST">
             <div class="row">
                 <div class="col">
                     <label for="fname">Enter length of nucleotides below</label>
-                    <input class="form-control form-control-lg" type="number" name="len" placeholder="Enter length of nucleotides" required>
+                    <input class="form-control form-control-lg"  id="len" placeholder="Enter length of nucleotides" required>
                 </div>
                 
             </div>
             <button class="btn mb-4" type="submit">Submit</button>
         </form>
-        {% if x == 1 %}
-            <P>Generated Random Nucleotide sequence is :</P>
-            <h3 class="text-break" id="myInput">{{ seq }}</h3>
-            <button class="btn m-2 mb-3" data-clipboard-target="#myInput">Copy Sequence</button>
-            <P>Generated Random Reversed compliement sequence is :</P>
-            <h3 class="text-break" id="myInput1">{{ rev_seq }}</h3>
-            <button class="btn m-2" data-clipboard-target="#myInput1">Copy Reversed Sequence</button>
-            
-        {% endif %}
-
         
         
       </div>
