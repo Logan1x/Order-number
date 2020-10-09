@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Orders</title>
+</head>
+<body>
+	<div>
+		<h2>Latest Order: </h2>
+		<h1>{{ orders[0] }}</h1>
+	</div>
+
+	<div>
+		<h3>Previous Orders:</h3>
+		{% if orders|length <= 0 %}
+			<h4>No previous orders to display</h4>
+		{% else %}
+			{% for order in orders[1:] %}
+				<h4>  {{ order }}</h4>
+			{% endfor %}
+		{% endif %}
+	</div>
+
+</body>
+</html>
