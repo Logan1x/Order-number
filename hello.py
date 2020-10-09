@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 import random
 
 app = Flask(__name__)
-MAX_QUEUE_SIZE = 5
+MAX_QUEUE_SIZE = 10
 ORDERS_QUEUE = Queue(maxsize=MAX_QUEUE_SIZE)
 
 
