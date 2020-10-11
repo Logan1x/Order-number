@@ -1,31 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	<meta http-equiv="Refresh" content="2">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 	      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel='stylesheet' href="{{ url_for('static', filename='css/style.css') }}">
-	<title>Order Number</title>
+	<title>Orders</title>
 </head>
 <body>
 	<div class="container text-center mt-5">
-		<form method="POST">
-			<div class="row">
-				<div class="col">
-					<label for="fname">Welcome enter order number:</label>
-					<input class="form-control form-control-lg" id="len" name="order_num" type="text"
-					       autofocus placeholder="Enter order number" required>
-				</div>
-
+		<div class="row">
+			<div class="col">
+				<h2>Latest Order: </h2>
+				{% if orders|length <= 0 %}
+					<h1 class="order-num">No current orders to display</h1>
+				{% else %}
+					<h1 class="order-num">{{ orders[0] }}</h1>
+				{% endif %}
 			</div>
-			<button class="btn mb-4" type="submit">Submit</button>
-		</form>
-
-
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col">
+				<h3>Previous Orders:</h3>
+				{% if orders|length <= 1 %}
+					<h4 class="order-num">No previous orders to display</h4>
+				{% else %}
+					{% for order in orders[1:] %}
+						<h4 class="order-num">  {{ order }}</h4>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
 	</div>
 
 	<!-- Optional JavaScript -->
@@ -39,9 +49,8 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
 	        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 	        crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
 	<script type="text/javascript">
-        new ClipboardJS('.btn');
+
 	</script>
 </body>
 </html>
